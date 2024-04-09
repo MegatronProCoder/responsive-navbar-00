@@ -1,0 +1,196 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+body{
+    margin: 0;
+    font-family: "Nunito", sans-serif;
+    
+}
+p , ul{
+    margin: 0;
+}
+ul{
+    padding: 0;
+    list-style: none;
+    
+}
+a{
+    color: inherit;
+    background-color: inherit;
+    text-decoration-line: none;
+}
+
+/* header and its child div */
+header{
+    padding: 0.8rem 0.5rem;
+    box-shadow: 0 0 1px 1px rgb(0, 0, 0 , 0.12);
+    max-width: 1400px;
+    margin-inline: auto;
+}
+header>div{
+    width: 95%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-inline: auto;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+/* hamburger  */
+.Hamburger{
+    position: relative;
+    cursor: pointer;
+}
+.checkbox{
+    position: absolute;
+    display: none;
+    left: 0;
+}
+
+/* profile-menu-container */
+.profile-menu-container{
+    max-width: 150px;
+    width: 100%;
+    position: absolute;
+    left:100%;
+    top: 0;
+    transform: translateX(-96%);
+    font-weight: 700;
+    box-shadow: 0 -0.1px 1px 1px rgb(0, 0, 0 , 0.12);
+    background-color: white;
+    display: none;
+}
+@media (min-width:350px){
+    .profile-menu-container{
+        max-width: 200px;
+    }
+}
+
+.profile-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+    padding: 0.5rem 0.5rem 0.5rem 2rem;
+    border-bottom: 1px solid rgba(0 ,0 , 0, 0.12);
+}
+.profile-container label{
+    cursor: pointer;
+}
+.profile{
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+.profile-logo{
+    position: relative;
+    display: flex;
+    
+}
+.green-circle{
+    width: 0.55rem;
+    aspect-ratio: 1;
+    background-color: #22C55E;
+    border-radius: 50%;
+    position: absolute;
+    left: 70%;
+    top: 70%;
+}
+
+.menu-container li{
+    padding-inline: 2rem 0;
+    margin-block: 0.5rem ;
+}
+/* 
+mechanism for hamburger
+ */
+#check:checked + .profile-menu-container{
+    display: block;
+}
+/* 
+mechanism for course
+*/
+.courses{
+    position: relative;
+    cursor: pointer;
+}
+.courses>img{
+    transform: rotate(180deg);
+}
+li:has(.courses-menu){
+    font-size: 0.6rem;
+    border-block: 1px solid rgba(0 ,0 , 0, 0.12) ; 
+    display: none;
+}
+
+.courses-menu>div{
+    margin-block: 0.5rem;
+    a:hover{
+        text-decoration-line: underline;
+    }
+}
+
+#see-courses:checked + img{
+    transform: rotate(0deg);
+}
+li:has(#see-courses:checked)+ li{
+    display: block;
+}
+/* for desktop */
+@media(min-width:800px){
+    .Hamburger{
+        display: none;
+    }
+    
+    .profile-menu-container{
+       
+        
+        position: static;
+        display: flex;
+        /* flex-grow: 1; */
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        font-weight: 700;
+        max-width: unset;
+        width: 100%;
+        transform: unset;
+        font-weight: 700;
+        box-shadow: none;
+        background-color: white;
+        
+    }
+    
+    .profile-container{
+        padding:0;
+        border:unset;
+    }
+    .profile-container label{
+        display: none;
+    }
+    .menu-container{
+        position: relative;
+        margin-inline: auto;
+        
+    }
+    .menu-container ul{
+        display: flex;
+    }
+    li:has(.courses-menu){
+        position: absolute;
+        left: 0;
+        transform: translateX(10%) translateY(40%);
+        font-size: 0.8rem;
+        font-weight: 600;
+        border:none; 
+        box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+        padding: 0 1.5rem;
+        background-color: white;
+        /* display: none; */
+    }
+}
